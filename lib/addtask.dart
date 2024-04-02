@@ -106,7 +106,7 @@ class _AddtaskState extends State<Addtask> {
                 todatecontroller.clear();
               });
             },
-            child: const Text("Add Task"),
+            child: const Text("Add Tas"),
           ),
           // if (savedtask.isNotEmpty) Homepage(savedtask: savedtask),
         ],
