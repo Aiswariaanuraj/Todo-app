@@ -41,11 +41,11 @@ class Loginpage extends StatelessWidget {
                 String enteredpass = passwordcontroller.text;
                 if (entereduser == hardcoreuser &&
                     enteredpass == hardcorepassword) {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => const Homepage(),
-                  //     ));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Homepage(),
+                      ));
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       content: Text("Invalid username or Password")));

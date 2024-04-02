@@ -51,8 +51,6 @@ class _HomepageState extends State<Homepage> {
                       subtitle: Text(task.tdescription),
                       trailing: Row(
                           children: [Text(task.tfrmdate), Text(task.ttodate)]),
-
-                      // Add more ListTile properties to display additional task details
                     ),
                   );
                 },
