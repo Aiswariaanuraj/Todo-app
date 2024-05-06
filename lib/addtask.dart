@@ -1,11 +1,11 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:todo_clone/common_widget/common_calender.dart';
 import 'package:todo_clone/common_widget/common_textfields.dart';
 import 'package:todo_clone/homepage.dart';
 import 'package:todo_clone/task_model.dart';
+import 'package:todo_clone/task_provider.dart';
 
 class Addtask extends StatefulWidget {
   const Addtask({super.key});
@@ -15,11 +15,11 @@ class Addtask extends StatefulWidget {
 }
 
 class _AddtaskState extends State<Addtask> {
-  final List<String> prioritylist = ['high', 'low', 'urgent'];
-  final List<Task> savedtask = [];
+  final List<String> prioritylist = ['High', 'Low', 'Urgent'];
 
   @override
   Widget build(BuildContext context) {
+    final taskProvider = Provider.of<Taskprovider>(context);
     TextEditingController taskcontroller = TextEditingController();
     TextEditingController taskdescriptioncontroller = TextEditingController();
     String selected = prioritylist[0];
@@ -82,7 +82,7 @@ class _AddtaskState extends State<Addtask> {
           ),
           ElevatedButton(
             onPressed: () {
-              final task = taskcontroller.text;
+              final task = taskcontroller.text.toLowerCase();
               final taskdescription = taskdescriptioncontroller.text;
               final taskprioroty = selected;
               final taskfrm = frmdatecontroller.text;
@@ -100,17 +100,16 @@ class _AddtaskState extends State<Addtask> {
                   tpriority: taskprioroty,
                   tfrmdate: taskfrm,
                   ttodate: taskto);
+              taskProvider.addTasktolist(newtask);
               setState(() {
-                savedtask.add(newtask);
                 taskcontroller.clear();
                 taskdescriptioncontroller.clear();
                 frmdatecontroller.clear();
                 todatecontroller.clear();
               });
             },
-            child: const Text("Add Tas"),
+            child: const Text("Add Task"),
           ),
-          if (savedtask.isNotEmpty) Homepage(savedtask: savedtask)
         ],
       ),
 

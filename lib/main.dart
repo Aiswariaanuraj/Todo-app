@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_clone/loginpage.dart';
+import 'package:todo_clone/task_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => Taskprovider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,11 +18,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "TO DO",
       theme: ThemeData(
-          appBarTheme: AppBarTheme(backgroundColor: Colors.amber[200]),
+          appBarTheme: AppBarTheme(backgroundColor: Colors.purple[100]),
           scaffoldBackgroundColor: Colors.grey[200],
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.amber[200])))
+                  backgroundColor:
+                      MaterialStatePropertyAll(Colors.purple[100])))
           // buttonTheme: ButtonThemeData(buttonColor: Colors.amber[200]),
           ),
       home: const Loginpage(),

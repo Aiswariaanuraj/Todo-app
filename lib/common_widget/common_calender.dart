@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Commoncalender extends StatefulWidget {
   const Commoncalender(
@@ -22,8 +25,9 @@ class _CommoncalenderState extends State<Commoncalender> {
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
-
-        widget.datecontroller.text = selectedDate.toString();
+        // log(selectedDate.toString());
+        String formattedDate = DateFormat('dd-MM-yyyy').format(selectedDate);
+        widget.datecontroller.text = formattedDate;
       });
     }
   }
