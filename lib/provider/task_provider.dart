@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_clone/task_model.dart';
+import 'package:todo_clone/model/task_model.dart';
 
 class Taskprovider extends ChangeNotifier {
   final List<Task> savedtask = [];

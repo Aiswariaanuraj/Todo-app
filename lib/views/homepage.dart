@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_clone/addtask.dart';
+import 'package:todo_clone/provider/task_provider.dart';
 
-import 'package:todo_clone/task_provider.dart';
+import 'package:todo_clone/views/addtask.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});

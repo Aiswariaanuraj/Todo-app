@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_clone/loginpage.dart';
-import 'package:todo_clone/task_model.dart';
-import 'package:todo_clone/task_provider.dart';
+import 'package:todo_clone/provider/task_provider.dart';
+import 'package:todo_clone/views/loginpage.dart';
+import 'package:todo_clone/model/task_model.dart';
 
 void main() async {
   await Hive.initFlutter();
