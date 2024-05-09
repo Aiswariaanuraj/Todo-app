@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_clone/addtask.dart';
-import 'package:flutter_swipe_action_cell/flutter_swipe_action_cell.dart';
-import 'package:todo_clone/task_model.dart';
+
 import 'package:todo_clone/task_provider.dart';
 
 class Homepage extends StatefulWidget {
