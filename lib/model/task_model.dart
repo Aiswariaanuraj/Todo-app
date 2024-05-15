@@ -1,15 +1,8 @@
 import 'package:hive/hive.dart';
+part 'task_model.g.dart';
 
-// part task.g.dart;
-@HiveType(typeId: 1)
-class Task {
-  Task(
-      {required this.tname,
-      required this.tdescription,
-      required this.tpriority,
-      required this.tfrmdate,
-      required this.ttodate});
-
+@HiveType(typeId: 0)
+class Task extends HiveObject {
   @HiveField(0)
   String tname;
   @HiveField(1)
@@ -20,4 +13,10 @@ class Task {
   String tfrmdate;
   @HiveField(4)
   String ttodate;
+  Task(
+      {required this.tname,
+      required this.tdescription,
+      required this.tpriority,
+      required this.tfrmdate,
+      required this.ttodate});
 }

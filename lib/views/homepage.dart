@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_clone/provider/task_provider.dart';
-
 import 'package:todo_clone/views/addtask.dart';
 
 class Homepage extends StatefulWidget {
@@ -54,6 +53,8 @@ class _HomepageState extends State<Homepage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       tileColor: tileColor,
+                      // leading: IconButton(
+                      //     onPressed: () {}, icon: Icon(Icons.delete)),
                       title: Text(task.tname,
                           style: const TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 18)),
@@ -61,11 +62,13 @@ class _HomepageState extends State<Homepage> {
                         task.tdescription,
                         style: const TextStyle(fontSize: 15),
                       ),
-                      trailing: Row(mainAxisSize: MainAxisSize.min, children: [
-                        Text(task.tfrmdate),
-                        const SizedBox(width: 10),
-                        Text(task.ttodate)
-                      ]),
+                      trailing: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(task.tfrmdate),
+                            const SizedBox(width: 10),
+                            Text(task.ttodate)
+                          ]),
                     ),
                   );
                 },

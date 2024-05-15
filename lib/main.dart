@@ -4,11 +4,15 @@ import 'package:provider/provider.dart';
 import 'package:todo_clone/provider/task_provider.dart';
 import 'package:todo_clone/views/loginpage.dart';
 import 'package:todo_clone/model/task_model.dart';
+// import 'package:path_provider/path_provider.dart' as path_provider;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // final appDirectory = await path_provider.getApplicationDocumentsDirectory();
   await Hive.initFlutter();
+  Hive.registerAdapter(TaskAdapter());
 
-  var Box = await Hive.openBox<Task>('taskBox');
+  var box = await Hive.openBox<Task>('taskBox');
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => Taskprovider()),
   ], child: const MyApp()));
